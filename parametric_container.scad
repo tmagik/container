@@ -1,3 +1,14 @@
+/*
+   WARNING: DO NOT USE for structural designs!!, this is
+   currently purely a model for visualiztion and design
+   exploration of the Q3ube MIND component of the Civilization
+   Critical SDK
+
+   (C) 2025 7 Elements LLC and Troy Benjegerdes, troy@7el.us
+   This work is licensed under the AGPLv3.0,
+   (https://www.gnu.org/licenses/agpl-3.0.en.html)
+*/
+
 /* OpenSCAD script to create fully parametric models of shipping containers 
 
    $Id$
@@ -34,8 +45,9 @@ EXT_WIDTH  = 2.44;      // Standard width:   2.44
 EXT_HEIGHT = 2.59;      // Standard heights: 2.59 or 2.90 for High Cube
 
 // Model settings
-SCALE = 100;  // 1:<SCALE> sizing
-THICKNESS_WALL = 1.5;        // External wall in mm
+SCALE = 1;  // 1:<SCALE> sizing
+//THICKNESS_WALL = 1.5;        // External wall in mm
+THICKNESS_WALL = 50;        // needs to be at least ~30 at scale 1
 THICKNESS_WALL_INT = 1.5;   // Internal wall in mm
 TOLERANCE = 0.1; // Tolerance for assembly of walls (excluding frame)
 
@@ -65,7 +77,7 @@ STYLE_RIGHT="ridges";
 STYLE_LEFT="ridges";
 STYLE_TOP="ridges";
 STYLE_BOTTOM="flat";
-STYLE_FILL="walls";
+STYLE_FILL="none";
 
 // Assembly styles
 // "box": a single box
@@ -79,7 +91,7 @@ STYLE_FILL="walls";
 //           printable this way, but interior walls will 
 //           not work and will be ignored.
 // "custom": custom placement for every part
-ASSEMBLY_STYLE = "parts";
+ASSEMBLY_STYLE = "box";
 // Parts displacement distance in mm
 PART_D = 3; 
 
@@ -127,14 +139,16 @@ SIDE_I = m2mm(SIDE_INSET); // Convert to scale (this needs to be placed here)
    All units in m.
    Interior text can be placed in X direction only so far.
 */ 
-PLACE_WINDOWS = false;
+PLACE_WINDOWS = true;
 PLACE_TEXT_INT = false;
-PLACE_TEXT_EXT = true;
+PLACE_TEXT_EXT = false;
+FANSIZE = 2; // radiator/fan opening size
+FANOFFSET = .5; // fan offset from doors
 FEATURES = [
-     opening(wall=RIGHT, x=0.5, width=4),
-     window(wall=LEFT, x=0.75, y=0.8, width=1.8, height=1.7),
-     window(wall=BACK, x=0.3, y=2.05, width=1.8, height=0.3),
-     window(wall=FRONT, x=0.3, y=1.05, width=1.8, height=1.8),
+     //opening(wall=LEFT, x=EXT_LENGTH-FANSIZE-FANOFFSET, width=FANSIZE),
+     //opening(wall=RIGHT, x=FANOFFSET, width=FANSIZE),
+     window(wall=LEFT, x=EXT_LENGTH-FANSIZE-FANOFFSET, y=.3, width=FANSIZE, height=FANSIZE),
+     window(wall=RIGHT, x=FANOFFSET, y=.3, width=FANSIZE, height=FANSIZE),
      wall(dir="x", x=1, y=1.2, length=1.5),
      wall(dir="y", x=2.5, y=0.75, length=1.0),
      text_int(text="Robe", x=0.25, y=2.1, size=6),
