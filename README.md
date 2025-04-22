@@ -7,7 +7,10 @@ energy input power.
 
 See the file Container.md for the original source and documentation.
 
-##
+![Container image](Container_img.png)
+
+## 
+
 One of the working concept designs for the MIND::container consists of 
 504 containers with free-air cooling via the fan/radiator cutouts on the 
 left and right sides.
@@ -33,13 +36,14 @@ optionally include energy storage components.
 
 Transformers may optional be mounted externally to containers, with left and
 right side power feeds of one of the following intermediate voltage categories:
- * Low-voltage interemediate
-     * 380/416VDC (loaded/idle)
-     * 208/120VAC (Delta)
-     * 240VAC (Delta)
- * Medium voltage intermediate
-     * 768/832VDC (loaded/idle)
-     * 600/346VAC (Delta)
+
+* Low-voltage interemediate
+  * 380/416VDC (loaded/idle)
+  * 208/120VAC (Delta)
+  * 240VAC (Delta)
+* Medium voltage intermediate
+  * 768/832VDC (loaded/idle)
+  * 600/346VAC (Delta)
 
 With external transformers, power feed cables (multiple conductors per phase)
 will support a maximum of 1500 amps with appropriate transformer or inline fusing
@@ -55,11 +59,8 @@ Transformers and/or DC power systems shall be floating-ground isolated systems.
 Each container will have a DC-side isolation monitoring and ground-fault detection
 system similiar to those used on EV charging systems.
 
-
-
-
-
 ## IP Patent disclosure
+
 This work is a derivative of the [Q3ube](http://7el.us/q3),
 [7 Elements LED weeder](https://github.com/tmagik/DEW/blob/master/patent/US11690369.pdf)
 and [DEW](https://github.com/tmagik/DEW) IP patent portfolio. Please be
@@ -72,13 +73,13 @@ helps us continue to develop and release new content for the betterment of
 all thinking entities.
 
 * Additional Features:
-    * system-wide water cooling and heat reacovery
-    * renewable energy integration
-    * ethanol distillation
-    * greenhouse heating
-    * residential combined heat and power
-    * Butterfly/Dragonfly/etc cluster interconnect
-    * 48V power distribution to compute boards
+  * system-wide water cooling and heat reacovery
+  * renewable energy integration
+  * ethanol distillation
+  * greenhouse heating
+  * residential combined heat and power
+  * Butterfly/Dragonfly/etc cluster interconnect
+  * 48V power distribution to compute boards
 
 ## Prerequisites
 
